@@ -10,7 +10,7 @@ const Header = () => {
                 <img src="/src/assets/img/header/logo.png" alt="#" />
               </div>
               <p>
-                Остекление балконов и лоджий в Москве и Московской области
+              Glazing of balconies and loggias in Antarctica and the region.
               </p>
             </div>
           </div>
