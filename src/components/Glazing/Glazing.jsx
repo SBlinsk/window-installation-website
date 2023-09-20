@@ -1,28 +1,29 @@
 import { useState, useEffect } from "react";
-import glazingData from "./glazingData";
 import GlazingSlider from "./GlazingSlider";
+import ModalCalc from "../modalCalc/modalCalc";
+import Button from "./Button";
+import Img from "./Img";
 
-const Glazing = () => {
-  const data = glazingData;
 
-  const findGlazingDataById = (ids) => {
-    const selItem = data.find((item) => item.id === ids);
-    if(!selItem){
-      return console.log("items wasnt found in func findGlazingDataById ")
-    }
-    return selItem;
-  };
+const findGlazingDataById = (ids, dataArr) => {
+  const Item = dataArr.find((item) => item.id === ids);
+  if (!Item) {
+    return console.log("items wasnt found in func findGlazingDataById ");
+  }
+  return Item;
+};
+
+const Glazing = ({dataOfGlazing}) => {
+  const data = dataOfGlazing;
 
   const [selectedImageId, setSelectedImageId] = useState("wood");
-  const [selectedItem, setSelectedItem] = useState(findGlazingDataById(selectedImageId));
+  const [modal, setModal] = useState(false);
 
+  const modalClose = () => {
+    setModal(false);
+  };
 
-
-
-  useEffect(() => {
-    const selectedItemData = findGlazingDataById(selectedImageId);
-    setSelectedItem(selectedItemData);
-  }, [selectedImageId]);
+  const selecledItem = findGlazingDataById(selectedImageId, data);
 
   return (
     <section className="glazing">
@@ -32,15 +33,16 @@ const Glazing = () => {
           <div className="section_header_sub"></div>
         </div>
         <GlazingSlider setSelectedImageId={setSelectedImageId} />
-        <ViewItem item={selectedItem}/>
+        <ViewItem item={selecledItem} setModal={setModal} />
+        {modal ? <ModalCalc modalClose={modalClose} /> : null}
       </div>
     </section>
   );
 };
 
-const ViewItem = ({item}) => {
+const ViewItem = ({ item, setModal }) => {
   if (!item) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
   return (
     <div className="row tree glazing_content">
@@ -48,7 +50,7 @@ const ViewItem = ({item}) => {
       <div className="col-md-6 no-padding">
         <div className="glazing_cold">
           <h3>Холодное</h3>
-          <img src={item.info.cold.img} alt="#" />
+          <Img src={item.info.cold.img} alt="#" />
           <ul>
             <li>
               Конструктивная толщина: {item.info.cold.constructionThickness}
@@ -60,13 +62,12 @@ const ViewItem = ({item}) => {
         </div>
         <div className="glazing_price">
           <p>
-            {item.info.cold.price}
+            {/* цена под ключ в следующей строке призодит из другого компонента , модальное окно будет тут*/}
+            {item.info.cold.price}$
             <br />
             <span>под ключ с установкой</span>
           </p>
-          <button className="button glazing_price_btn text-uppercase popup_calc_btn">
-            Рассчитать стоимость
-          </button>
+          <Button onClick={() => setModal(true)} />
         </div>
       </div>
 
@@ -74,10 +75,10 @@ const ViewItem = ({item}) => {
       <div className="col-md-6 no-padding">
         <div className="glazing_warm">
           <h3>Теплое</h3>
-          <img src={item.info.warm.img} alt="#" />
+          <Img src={item.info.warm.img} alt="#" />
           <ul>
             <li>
-              Конструктивная толщина профиля:{" "}
+              Конструктивная толщина профиля:
               {item.info.warm.constructionThickness}
             </li>
             <li>Остекление: {item.info.warm.glazing}</li>
@@ -87,13 +88,11 @@ const ViewItem = ({item}) => {
         </div>
         <div className="glazing_price">
           <p>
-            {item.info.warm.price}
+            {item.info.warm.price}$
             <br />
             <span>под ключ с установкой</span>
           </p>
-          <button className="button glazing_price_btn text-uppercase popup_calc_btn">
-            Рассчитать стоимость
-          </button>
+          <Button onClick={() => setModal(true)} />
         </div>
       </div>
     </div>

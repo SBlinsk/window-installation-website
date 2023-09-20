@@ -6,6 +6,7 @@ import './assets/css/style.css'
 import Header from "./components/Header/Header";
 import MainBlock from "./components/Main/mainBlock";
 import Glazing from "./components/Glazing/Glazing";
+import glazingData from "./components/Glazing/glazingData";
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <>
       <Header />
       <MainBlock />
-      <Glazing />
+      <Glazing dataOfGlazing ={glazingData}/>
     </>
   );
 }
