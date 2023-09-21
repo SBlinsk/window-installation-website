@@ -1,44 +1,37 @@
 import { useState } from "react";
+import"./modal.css"
 
-const ModalCalc = ({ isOpen, price, onClose }) => {
+const Footage = ({ price }) => {
   const [inputValue, setInputValue] = useState(0);
   const [result, setResult] = useState();
 
   const onHandleChange = (e) => {
     const value = e.target.value;
-    return setResult(value);
-  };
-  const onClickClose = () => {
-    onClose();
+    return setInputValue(value);
   };
 
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    const number = parseFloat(inputValue);
-    if (isNaN(number)) {
+    const areaSize = parseFloat(inputValue);
+
+    if (isNaN(areaSize)) {
       return setResult("Вы ввели неверные данные, введите число");
     }
-    return setResult(number * price);
+    return setResult(areaSize * price);
   };
 
-  if (!isOpen) {
-    return null;
-  }
   return (
-    <div>
+    <div className="footage-container">
       <form onSubmit={onHandleSubmit}>
         <label>
           Enter the square footage of your apartment:
           <input type="text" value={inputValue} onChange={onHandleChange} />
         </label>
         <button type="submit">Calculate</button>
-        <button type="close" onClick={() => onClickClose}>
-          Close
-        </button>
       </form>
-      <div>{result}</div>
+      {result?<div className="result">The price will be {result} $</div>:null}
     </div>
   );
 };
 
-export default ModalCalc;
+export default Footage;

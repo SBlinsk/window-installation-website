@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import GlazingSlider from "./GlazingSlider";
-import ModalCalc from "../modalCalc/modalCalc";
+import Modal from "../modalCalc/  Modal";
 import Button from "./Button";
 import Img from "./Img";
-
+import Footage from "../modalCalc/Footage";
 
 const findGlazingDataById = (ids, dataArr) => {
   const Item = dataArr.find((item) => item.id === ids);
@@ -13,17 +13,19 @@ const findGlazingDataById = (ids, dataArr) => {
   return Item;
 };
 
-const Glazing = ({dataOfGlazing}) => {
-  const data = dataOfGlazing;
+const Glazing = ({ data }) => {
+  const dataArr = data;
 
   const [selectedImageId, setSelectedImageId] = useState("wood");
-  const [modal, setModal] = useState(false);
+  const [hasModal, setHasModal] = useState(false);
+  const [price, setPrice] = useState(3);
 
   const modalClose = () => {
-    setModal(false);
+    setHasModal(false);
+    console.log("Close Modal");
   };
 
-  const selecledItem = findGlazingDataById(selectedImageId, data);
+  const selecledItem = findGlazingDataById(selectedImageId, dataArr);
 
   return (
     <section className="glazing">
@@ -33,14 +35,23 @@ const Glazing = ({dataOfGlazing}) => {
           <div className="section_header_sub"></div>
         </div>
         <GlazingSlider setSelectedImageId={setSelectedImageId} />
-        <ViewItem item={selecledItem} setModal={setModal} />
-        {modal ? <ModalCalc modalClose={modalClose} /> : null}
+        <ViewItem
+          item={selecledItem}
+          setHasModal={setHasModal}
+          setPrice={setPrice}
+        />
+        {/* {hasModal ? <ModalCalc modalClose={modalClose} /> : null} */}
+        {hasModal ? (
+          <Modal modalClose={modalClose}>
+            <Footage price={price} />
+          </Modal>
+        ) : null}
       </div>
     </section>
   );
 };
 
-const ViewItem = ({ item, setModal }) => {
+const ViewItem = ({ item, setHasModal, setPrice }) => {
   if (!item) {
     return <div>Loading...</div>;
   }
@@ -67,7 +78,14 @@ const ViewItem = ({ item, setModal }) => {
             <br />
             <span>под ключ с установкой</span>
           </p>
-          <Button onClick={() => setModal(true)} />
+          <Button
+            onClick={() => {
+              setPrice(item.info.cold.price);
+              setHasModal(true);
+            }}
+          >
+            Рассчитать стоимость
+          </Button>
         </div>
       </div>
 
@@ -92,7 +110,14 @@ const ViewItem = ({ item, setModal }) => {
             <br />
             <span>под ключ с установкой</span>
           </p>
-          <Button onClick={() => setModal(true)} />
+          <Button
+            onClick={() => {
+              setPrice(item.info.warm.price);
+              setHasModal(true);
+            }}
+          >
+            Рассчитать стоимость
+          </Button>
         </div>
       </div>
     </div>

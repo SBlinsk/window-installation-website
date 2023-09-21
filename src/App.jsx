@@ -14,7 +14,7 @@ function App() {
     <>
       <Header />
       <MainBlock />
-      <Glazing dataOfGlazing ={glazingData}/>
+      <Glazing data ={glazingData}/>
     </>
   );
 }
