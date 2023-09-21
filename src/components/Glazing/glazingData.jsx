@@ -37,7 +37,7 @@ const glazingData = [
           glazing: "полированное стекло (толщиной 4 - 5 мм)",
           thermalInsulation: "0,07 м^2 * С/Вт",
           soundInsulation: "20-27 дБ",
-          price: "4000 руб.кв.м.",
+          price: 220,
           img:"src/assets/img/glazing/aluminum/cold.jpg",
         },
         // Данные теплого остекления
@@ -46,7 +46,7 @@ const glazingData = [
           glazing: "однокамерные и двухкамерные стеклопакеты",
           thermalInsulation: "0,63 - 1,05 м^2 * С/Вт",
           soundInsulation: "до 5 класса",
-          price: "8000 руб.кв.м.",
+          price: 230,
           img:"src/assets/img/glazing/aluminum/warm.jpg",
         },
       },

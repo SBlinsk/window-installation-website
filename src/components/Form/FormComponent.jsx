@@ -5,6 +5,8 @@ const Form = () => {
     username: "",
     number: "",
   });
+  const [alreadyCalled, setAlreadyCalled] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -15,11 +17,12 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData.username, formData.number);
+    setAlreadyCalled(true);
   };
 
   return (
     <form onSubmit={handleSubmit} className="form main_form">
-      <h2>
+            {alreadyCalled?<div className="text-uppercase btn-block button">Master has been called</div>:<div>      <h2>
         Make an appointment today
         <br />
         for a free measurement
@@ -42,7 +45,8 @@ const Form = () => {
       ></input>
       <button className="text-uppercase btn-block button" type="submit">
         Call a surveyor
-      </button>
+      </button></div>}
+
       <p className="form_notice">Your data will remain confidential </p>
     </form>
   );
