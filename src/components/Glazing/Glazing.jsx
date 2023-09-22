@@ -14,7 +14,6 @@ const findGlazingDataById = (ids, dataArr) => {
 };
 
 const Glazing = ({ data }) => {
-  const dataArr = data;
 
   const [selectedImageId, setSelectedImageId] = useState("wood");
   const [hasModal, setHasModal] = useState(false);
@@ -25,7 +24,7 @@ const Glazing = ({ data }) => {
     console.log("Close Modal");
   };
 
-  const selecledItem = findGlazingDataById(selectedImageId, dataArr);
+  const selecledItem = findGlazingDataById(selectedImageId, data);
 
   return (
     <section className="glazing">
