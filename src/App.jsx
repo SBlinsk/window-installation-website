@@ -7,6 +7,8 @@ import Header from "./components/Header/Header";
 import MainBlock from "./components/Main/mainBlock";
 import Glazing from "./components/Glazing/Glazing";
 import glazingData from "./components/Glazing/glazingData";
+import Decoration from "./components/Decoration/Decoration";
+import decorationData from "./components/Decoration/decorationData";
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
       <Header />
       <MainBlock />
       <Glazing data ={glazingData}/>
+      <Decoration data={decorationData}/>
     </>
   );
 }
