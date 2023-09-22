@@ -373,9 +373,14 @@ textarea:focus {
 .glazing {
   padding: 8rem 0;
 }
+.glazing_slider {
+  display: flex;
+  justify-content: center;
+}
 
 .glazing_block {
   display: inline-block;
+  padding-right: 25px;
 }
 
 .glazing_block img {
