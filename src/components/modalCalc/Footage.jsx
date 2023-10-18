@@ -14,7 +14,7 @@ const Footage = ({ price }) => {
 
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    return setResult(areaSize * price);
+    return setResult(inputValue * price);
   };
 
   const desabledButton = error ? true : false;
