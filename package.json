@@ -10,9 +10,9 @@
     "preview": "vite preview",
     "prettier:check": "prettier . --check",
     "prettier:write": "prettier . --write"
-
   },
   "dependencies": {
+    "libphonenumber-js": "^1.10.47",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

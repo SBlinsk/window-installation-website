@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import GlazingSlider from "./GlazingSlider";
 import Modal from "../modalCalc/  Modal";
 import Button from "./Button";
@@ -34,13 +34,12 @@ const Glazing = ({ data }) => {
           <h2>Остекление балконов и лоджий</h2>
           <div className="section_header_sub"></div>
         </div>
-        <GlazingSlider setSelectedImageId={setSelectedImageId} />
+        <GlazingSlider setSelectedImageId={setSelectedImageId} data={data} />
         <ViewItem
           item={selecledItem}
           setHasModal={setHasModal}
           setPrice={setPrice}
         />
-        {/* {hasModal ? <ModalCalc modalClose={modalClose} /> : null} */}
         {hasModal ? (
           <Modal modalClose={modalClose}>
             <Footage price={price} />
@@ -73,7 +72,6 @@ const ViewItem = ({ item, setHasModal, setPrice }) => {
         </div>
         <div className="glazing_price">
           <p>
-            {/* цена под ключ в следующей строке призодит из другого компонента , модальное окно будет тут*/}
             {item.info.cold.price}$
             <br />
             <span>под ключ с установкой</span>

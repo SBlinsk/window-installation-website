@@ -1,28 +1,47 @@
+import { useState,useEffect } from "react";
+import DecorationSlider from "./DecorationSlider";
+import MaterialInfo from "./MaterialInfo";
+
 const Decoration = ({ data }) => {
-  const { selectedItemId, setSelectedItemId } = useState(data[0].id);
-  return <View data={data} />;
+  const [ selectedItemId, setSelectedItemId] = useState(data[0].id);
+  const [item, setItem] = useState(findDecorationDataById(selectedItemId, data));
+
+useEffect(()=>{
+  setItem(findDecorationDataById(selectedItemId, data),[selectedItemId])
+})
+  return <View data={data} setSelectedItemId={setSelectedItemId} selectedItem={item} />;
 };
 
 const findDecorationDataById = (ids, dataArr) => {
   const Item = dataArr.find((item) => item.id === ids);
   if (!Item) {
-    return console.log("items wasnt found in func findDataDataById ");
+    throw new Error("Item not found in findDecorationDataById");
   }
-  return Item;
+return Item;
 };
 
-const View = ({ data }) => {
+
+const View = ({ data, selectedItem, setSelectedItemId }) => {
   return (
-    <section class="decoration">
-      <div class="container">
-        <div class="section_header">
+    <section className="decoration">
+      <div className="container">
+        <div className="section_header">
           <h2>ЗАКАЖИТЕ ОТДЕЛКУ БАЛКОНА СО СКИДКОЙ 60%!</h2>
-          <div class="section_header_sub"></div>
+          <div className="section_header_sub"></div>
         </div>
-        <Slider dataArr={data} setSelectedItemId={setSelectedItemId} />
+        <DecorationSlider dataArr={data} setSelectedItemId={setSelectedItemId} />
+        <MaterialInfo item={selectedItem}/>
+        
+        <div className="decoration_content">
+        
+          <div className="row"></div>
+          
+        </div>
+        
       </div>
     </section>
   );
 };
 
 export default Decoration;
+

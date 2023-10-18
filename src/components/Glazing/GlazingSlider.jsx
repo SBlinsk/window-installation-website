@@ -1,6 +1,5 @@
-import glazingData from "./glazingData";
 
-const GlazingSlider = ({ setSelectedImageId }) => {
+const GlazingSlider = ({ setSelectedImageId, data }) => {
   const handleClick = (id) => {
     setSelectedImageId(id);
   };
@@ -15,7 +14,7 @@ const GlazingSlider = ({ setSelectedImageId }) => {
       </div>
     ));
   };
-  return <div className="glazing_slider">{slider(glazingData)}</div>;
+  return <div className="glazing_slider">{slider(data)}</div>;
 };
 
 export default GlazingSlider;

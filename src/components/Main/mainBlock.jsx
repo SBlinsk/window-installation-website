@@ -1,4 +1,5 @@
 import Form from "../Form/FormComponent";
+import MainForm from "../Form/mainForm";
 
 const MainBlock = () => {
   return (
@@ -69,7 +70,7 @@ const MainBlock = () => {
               <div className="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12 wow fadeInRight"></div>
             </div>
           </div>
-          <div className="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12 wow fadeInRight"><Form/></div>
+          <div className="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12 wow fadeInRight"><MainForm/></div>
         </div>
       </div>
     </main>

@@ -626,7 +626,7 @@ textarea:focus {
 .decoration .external,
 .decoration .rising,
 .decoration .roof {
-  display: none;
+  display: block;
 }
 
 /*Our works*/
