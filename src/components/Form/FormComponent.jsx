@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = () => {
+const Form = (classList) => {
   const [formData, setFormData] = useState({
     username: "",
     number: "",
@@ -21,7 +21,7 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form main_form">
+    <form onSubmit={handleSubmit} className={"form main_form"+classList}>
             {alreadyCalled?<div className="text-uppercase btn-block button">Master has been called</div>:<div>      <h2>
         Make an appointment today
         <br />
