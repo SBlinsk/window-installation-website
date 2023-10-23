@@ -1,5 +1,6 @@
 //APP WICH WILL BE IN MAIN.JSX
 // import "./App.css";
+// add some comment
 import "./assets/css/animate.min.css";
 import "./assets/css/bootstrap.css";
 import "./assets/css/style.css";
