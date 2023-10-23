@@ -26,7 +26,7 @@ const View = ({ data, selectedItem, setSelectedItemId }) => {
     <section className="decoration">
       <div className="container">
         <div className="section_header">
-          <h2>ЗАКАЖИТЕ ОТДЕЛКУ БАЛКОНА СО СКИДКОЙ 60%!</h2>
+          <h2>ORDER BALCONY FINISHING WITH A 60% DISCOUNT!</h2>
           <div className="section_header_sub"></div>
         </div>
         <DecorationSlider dataArr={data} setSelectedItemId={setSelectedItemId} />

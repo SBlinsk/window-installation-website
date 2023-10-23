@@ -8,7 +8,7 @@ const MaterialInfo = ({ item }) => {
           <img src={item.img} alt="#" />
           <h3>{item.id}</h3>
           <p>
-            {item.price}$. кв.м.<span>с материалом</span>
+            {item.price}$. sq.m.<span>with material</span>
           </p>
         </div>
       </div>
