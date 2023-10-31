@@ -34,7 +34,6 @@ function App() {
       <Contacts />
       <FeedBack />
       <Footer />
-      <Timer/>
     </>
   );
 }
