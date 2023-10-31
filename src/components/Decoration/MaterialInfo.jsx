@@ -1,6 +1,5 @@
 import MainForm from "../Form/mainForm";
 const MaterialInfo = ({ item }) => {
-  console.log("item in external is " +JSON.stringify(item.material))
   const result = item.material.map((item) => {
     return (
       <div className="col-lg-4 col-md-4 col-sm-4 col-xs-6" key={item.id}>

@@ -1854,3 +1854,10 @@ textarea:focus {
     animation: none !important;
   }
 }
+
+.wow {
+  visibility: visible;
+  animation-delay: 0s;
+  animation-name: none;
+  will-change: transform;
+}

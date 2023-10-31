@@ -1,14 +1,15 @@
-
+import Modal from "../modalCalc/  Modal";
+import MainForm from "../Form/MainForm";
+import { useState } from "react";
 const Header = () => {
+  const [modalClosed, setModalclose]= useState(true)
+
   return (
     <header className="header">
       <div className="container">
         <div className="row">
           <div className="col-md-5 col-sm-3 col-xs-12">
             <div className="logo">
-              <div className="logo-img">
-                <img src="/src/assets/img/header/logo.png" alt="#" />
-              </div>
               <p>
               Glazing of balconies and loggias in Antarctica and the region.
               </p>
@@ -17,10 +18,11 @@ const Header = () => {
           <div className="col-md-2 col-sm-3 col-xs-12">
             <div className="header_btn_wrap">
               <div className="header_btn_wrap_block">
-                <button className="header_btn text-uppercase text-left popup_engineer_btn">
+                <button className="header_btn text-uppercase text-left popup_engineer_btn"onClick={()=>setModalclose(false)}>
                   Call
                   <br /> Master
                 </button>
+                {modalClosed?null:<Modal modalClose={()=>setModalclose(true)} children={<MainForm/>}inlineStyle={{height: "100%"}}/>}
               </div>
             </div>
           </div>
@@ -41,7 +43,7 @@ const Header = () => {
                   <img src="/src/assets/img/header/phone.png" alt="picture" />
                   +49000000000
                 </a>
-                <a className="phone_link" href="#">request callback</a>
+                <a className="phone_link" href="#" onClick={()=>setModalclose(false)}>request callback</a>
               </div>
             </div>
           </div>

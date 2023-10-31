@@ -12,6 +12,7 @@
     "prettier:write": "prettier . --write"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "libphonenumber-js": "^1.10.47",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

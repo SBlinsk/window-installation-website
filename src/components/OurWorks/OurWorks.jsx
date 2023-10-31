@@ -1,9 +1,4 @@
-import { useEffect, useState } from "react";
-import WOW from "wowjs";
-import "wowjs/css/libs/animate.css";
-import"../../assets/css/animate.min.css"
-import"../../assets/css/style.css"
-
+import { useState } from "react";
 import Modal from "../modalCalc/  Modal";
 
 const OurWorks = ({ data }) => {
@@ -21,7 +16,7 @@ const OurWorks = ({ data }) => {
       return (
         <div
           key={index}
-          className="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-center wow fadeIn"
+          className="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-center "
           data-wow-delay={index === 0 ? "0s" : `${0.1 * index}s`}
         >
           <a onClick={onHandleClick} href={item.a}>
@@ -30,11 +25,7 @@ const OurWorks = ({ data }) => {
         </div>
       );
     });
-    useEffect(() => {
-        const wow = new WOW.WOW();
-        wow.init();
-      }, []);
-    
+
   return (
     <section className="works">
       <div className="container">
